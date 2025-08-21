@@ -11,7 +11,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tb_games")
+@Table(name = "tb_game")
 public class Gamer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,17 +19,18 @@ public class Gamer {
 
     private String title;
 
-    @Column(name = "gamer_year")
+    @Column(name = "game_year")
     private Integer year;
 
     private String genre;
 
-    private String platform;
+    private String platforms;
 
     private Double score;
 
     private String imgUrl;
 
+        @Column(columnDefinition = "Text")
     private  String shortDescription;
 
     @Override
@@ -43,7 +44,7 @@ public class Gamer {
     public int hashCode() {
         return Objects.hashCode(id);
     }
-
+    @Column(columnDefinition = "Text")
     private  String longDescription;
 
 
