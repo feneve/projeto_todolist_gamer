@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tb_belong")
+@Table(name = "tb_belonging")
 @Data
 @NoArgsConstructor
 public class Belong {
@@ -18,7 +18,7 @@ public class Belong {
     @EmbeddedId
     private BelongPK id = new BelongPK();
 
-    private Integer posicion;
+    private Integer position;
 
     @Override
     public boolean equals(Object o) {
@@ -34,7 +34,7 @@ public class Belong {
 
     public Belong (Game game, GameList gameList, Integer posicion){
 
-        this.posicion = posicion;
+        this.position = posicion;
         id.setGame(game);
         id.setGameList(gameList);
 
