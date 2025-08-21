@@ -12,7 +12,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @Entity
 @Table(name = "tb_game")
-public class Gamer {
+public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,10 +33,13 @@ public class Gamer {
         @Column(columnDefinition = "Text")
     private  String shortDescription;
 
+    @Column(columnDefinition = "Text")
+    private  String longDescription;
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Gamer gamer = (Gamer) o;
+        Game gamer = (Game) o;
         return Objects.equals(id, gamer.id);
     }
 
@@ -44,8 +47,7 @@ public class Gamer {
     public int hashCode() {
         return Objects.hashCode(id);
     }
-    @Column(columnDefinition = "Text")
-    private  String longDescription;
+
 
 
 }
