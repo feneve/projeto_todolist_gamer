@@ -1,6 +1,7 @@
 package com.feneves.todo_list_Gamer.Service;
 
 import com.feneves.todo_list_Gamer.Dto.GameDto;
+import com.feneves.todo_list_Gamer.Dto.GameListDto;
 import com.feneves.todo_list_Gamer.Dto.GameMinDto;
 import com.feneves.todo_list_Gamer.Entitys.Game;
 import com.feneves.todo_list_Gamer.Repository.GameRepository;
@@ -35,4 +36,6 @@ public class GameService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Id do gamer não encontrado"));
         return new GameDto(game);
     }
+
+
 }
