@@ -1,6 +1,7 @@
 package com.feneves.todo_list_Gamer.Dto;
 
 import com.feneves.todo_list_Gamer.Entitys.Game;
+import com.feneves.todo_list_Gamer.Projection.GameMinProjection;
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,6 +28,17 @@ public class GameMinDto {
         this.imgUrl = entity.getImgUrl();
         this.year = entity.getYear();
         this.title= entity.getTitle();
+
+    }
+
+
+    public GameMinDto(GameMinProjection projection) {
+
+        this.id = projection.getId();
+        this.shortDescription = projection.getShortDescription();
+        this.imgUrl = projection.getImgUrl();
+        this.year = projection.getYear();
+        this.title= projection.getTitle();
 
     }
 }

@@ -4,6 +4,7 @@ import com.feneves.todo_list_Gamer.Dto.GameDto;
 import com.feneves.todo_list_Gamer.Dto.GameListDto;
 import com.feneves.todo_list_Gamer.Dto.GameMinDto;
 import com.feneves.todo_list_Gamer.Entitys.Game;
+import com.feneves.todo_list_Gamer.Projection.GameMinProjection;
 import com.feneves.todo_list_Gamer.Repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,6 +26,13 @@ public class GameService {
     @Transactional(readOnly = true)
     public List<GameMinDto> findAll(){
         List<Game>game = gameRepository.findAll();
+        List<GameMinDto> dto = game.stream().map(x-> new GameMinDto(x)).toList();
+        return  dto;
+    }
+
+    @Transactional(readOnly = true)
+    public List<GameMinDto> findByList(Long id){
+        List<GameMinProjection>game = gameRepository.searchByList(id);
         List<GameMinDto> dto = game.stream().map(x-> new GameMinDto(x)).toList();
         return  dto;
     }
